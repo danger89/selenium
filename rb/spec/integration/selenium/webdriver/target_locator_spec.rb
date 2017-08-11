@@ -122,8 +122,7 @@ module Selenium
         expect(driver.title).to eq('XHTML Test Page')
       end
 
-      # only an issue with FF 54 and linux (passing on nightly), remove FF guard when stable is 55
-      context 'with more than two windows', except: {browser: %i[ie safari firefox]} do
+      context 'with more than two windows', except: {browser: %i[ie safari]} do
         it 'should close current window when more than two windows exist' do
           driver.navigate.to url_for('xhtmlTest.html')
           wait_for_element(link: 'Create a new anonymous window')
